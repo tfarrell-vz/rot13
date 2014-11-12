@@ -25,6 +25,10 @@ class MainPage(Handler):
 	def get(self):
 		self.render('index.html')
 
+	def post(self):
+		value = self.request.get('text')
+		self.render('index.html', value=value)
+
 app = webapp2.WSGIApplication([
 							    ('/', MainPage),
 								], debug=True)

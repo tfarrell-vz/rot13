@@ -1,5 +1,10 @@
-<form>
-	<textarea name="text" rows="4" cols="50"/></textarea>
+<form method="post">
+	<textarea name="text" rows="4" cols="50"/>{{ value }}</textarea>
 	<br>
 	<input type="submit">
 </form>
+
+{% if value %}
+<h1>Output:</h1>
+<textarea name="output" rows="4" cols="50"/>{{ value }}</textarea>
+{% endif %}
