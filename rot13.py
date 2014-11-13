@@ -1,4 +1,5 @@
 import os
+import string
 
 import jinja2
 import webapp2
@@ -26,8 +27,24 @@ class MainPage(Handler):
 		self.render('index.html')
 
 	def post(self):
-		value = self.request.get('text')
-		self.render('index.html', value=value)
+		text = self.request.get('text')
+
+		lowercase = string.ascii_lowercase
+		uppercase = string.ascii_uppercase
+
+		rot13_text = ""
+		for char in text:
+			if char.isalpha():
+				if char.islower():
+					index = lowercase.find(char)
+					index = (index+13) % 26
+					rot13_text += lowercase[index]
+			else:
+				rot13_text += char
+
+
+			
+		self.render('index.html', input_text=text, rot13_text=rot13_text)
 
 app = webapp2.WSGIApplication([
 							    ('/', MainPage),

@@ -1,11 +1,11 @@
 <h1>Input:</h1>
 <form method="post">
-	<textarea name="text" rows="4" cols="50"/>{{ value }}</textarea>
+	<textarea name="text" rows="4" cols="50"/>{{ input_text }}</textarea>
 	<br>
 	<input type="submit">
 </form>
 
-{% if value %}
+{% if rot13_text %}
 <h1>Output:</h1>
-<textarea name="output" rows="4" cols="50"/>{{ value }}</textarea>
+<textarea name="output" rows="4" cols="50"/>{{ rot13_text }}</textarea>
 {% endif %}
