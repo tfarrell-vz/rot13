@@ -39,6 +39,10 @@ class MainPage(Handler):
 					index = lowercase.find(char)
 					index = (index+13) % 26
 					rot13_text += lowercase[index]
+				else: 
+					index = uppercase.find(char)
+					index = (index+13) % 26
+					rot13_text += uppercase[index]
 			else:
 				rot13_text += char
 
